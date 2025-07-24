@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tazix Learn</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Section avec titre et bouton -->
+  <section class="top-section">
+  <div class="hero-titles">
+    <h1 class="title-part title-1">Bienvenue sur</h1>
+    <h1 class="title-part title-2">Tazix Learn</h1>
+    <h1 class="title-part title-3">Apprenez, progressez, maîtrisez.</h1>
+  </div>
+  <div class="hero-button">
+    <button id="btn-start" class="neumorph-btn">Commencer</button>
+
+  </div>
+</section>
+
+  <!-- Section Slider -->
+  <section class="courses-section" id="courses">
+    <h2>Formations disponibles</h2>
+
+    <div class="slider-wrapper">
+      <div class="mask-left"></div>
+      <div class="mask-right"></div>
+
+      <div class="slider-track">
+        <div class="slider">
+          <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" />
+            <h3>Python</h3>
+            <p>Apprenez à coder avec Python, un langage puissant.</p>
+            <button class="card-btn" onclick="window.location.href='python.html'">Voir formation</button>
+          </div>
+          <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" />
+            <h3>HTML & CSS</h3>
+            <p>Créez des sites modernes avec HTML5 et CSS3.</p>
+            <button class="card-btn" onclick="window.location.href='html-css.html'">Voir formation</button>
+          </div>
+          <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968672.png" />
+            <h3>JavaScript</h3>
+            <p>Ajoutez de l'interactivité avec JS moderne.</p>
+            <button class="card-btn" onclick="window.location.href='javascript.html'">Voir formation</button>
+          </div>
+          <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/226/226777.png" />
+            <h3>Java</h3>
+            <p>Maîtrisez la programmation orientée objet.</p>
+            <button class="card-btn" onclick="window.location.href='Java.html'">Voir formation</button>
+          </div>
+          <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/873/873120.png" />
+            <h3>UI Design</h3>
+            <p>Créez des interfaces modernes et intuitives.</p>
+            <button class="card-btn" onclick="window.location.href='ui-design.html'">Voir formation</button>
+          </div>
+          <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2504/2504941.png" />
+            <h3>Marketing</h3>
+            <p>Apprenez le marketing digital.</p>
+            <button class="card-btn" onclick="window.location.href='marketing.html'">Voir formation</button>
+          </div>
+          <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" />
+            <h3>WordPress</h3>
+            <p>Créez un site sans coder grâce à WordPress.</p>
+            <button class="card-btn" onclick="window.location.href='wordpress.html'">Voir formation</button>
+          </div>
+        </div>
+        <div class="slider">
+          <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" />
+            <h3>Python</h3>
+            <p>Apprenez à coder avec Python, un langage puissant.</p>
+            <button class="card-btn" onclick="window.location.href='python.html'">Voir formation</button>
+          </div>
+          <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" />
+            <h3>HTML & CSS</h3>
+            <p>Créez des sites modernes avec HTML5 et CSS3.</p>
+            <button class="card-btn" onclick="window.location.href='html-css.html'">Voir formation</button>
+          </div>
+          <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968672.png" />
+            <h3>JavaScript</h3>
+            <p>Ajoutez de l'interactivité avec JS moderne.</p>
+            <button class="card-btn" onclick="window.location.href='javascript.html'">Voir formation</button>
+          </div>
+          <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/226/226777.png" />
+            <h3>Java</h3>
+            <p>Maîtrisez la programmation orientée objet.</p>
+            <button class="card-btn" onclick="window.location.href='Java.html'">Voir formation</button>
+          </div>
+          <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/873/873120.png" />
+            <h3>UI Design</h3>
+            <p>Créez des interfaces modernes et intuitives.</p>
+            <button class="card-btn" onclick="window.location.href='ui-design.html'">Voir formation</button>
+          </div>
+          <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2504/2504941.png" />
+            <h3>Marketing</h3>
+            <p>Apprenez le marketing digital.</p>
+            <button class="card-btn" onclick="window.location.href='marketing.html'">Voir formation</button>
+          </div>
+          <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" />
+            <h3>WordPress</h3>
+            <p>Créez un site sans coder grâce à WordPress.</p>
+            <button class="card-btn" onclick="window.location.href='wordpress.html'">Voir formation</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function scrollToCourses() {
+      document.getElementById("courses").scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
+  <script>
+  document.getElementById('btn-start').addEventListener('click', () => {
+    const coursesSection = document.getElementById('courses');
+    if (coursesSection) {
+      coursesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+</script>
+
+</body>
+</html>
