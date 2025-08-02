@@ -59,13 +59,13 @@ body {
 
 .hero-button {
   /* Pour coller le bouton en bas */
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
 .neumorph-btn {
   background: #0a0a0a;
   border: none;
-  padding: 16px 40px;
+  padding: 25px 70px;
   font-size: 1.2rem;
   color: #00ffd5;
   border-radius: 50px;
@@ -78,12 +78,12 @@ body {
 }
 
 .courses-section {
-  padding: 60px 0;
+  padding: 20px 0 60px;
   text-align: center;
 }
 .courses-section h2 {
   font-size: 2rem;
-  margin-bottom: 30px;
+  margin-bottom: 170px;
   
 }
 
@@ -114,8 +114,8 @@ body {
   background: #121212;
   border-radius: 20px;
   padding: 20px;
-  min-width: 250px;
-  max-width: 250px;
+  min-width: 300px;
+  max-width: 300px;
   flex-shrink: 0;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
   transition: transform 0.3s ease;
@@ -211,4 +211,86 @@ body {
 .title-3 {
   animation-duration: 0.6s;
   animation-delay: 0.8s;
+}
+.site-footer {
+  background: #0a0a0a;
+  box-shadow: inset 6px 6px 12px #050505, inset -6px -6px 12px #101010;
+  padding: 20px 10px;
+  text-align: center;
+  color: #ffffffcc;
+  font-family: 'Poppins', sans-serif;
+  border-top: 1px solid #1a1a1a;
+  font-size: 0.75rem;
+}
+
+.site-footer .footer-content p {
+  margin: 4px 0;
+  font-size: 0.75rem;
+  color: #888;
+}
+/* HEADER */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px 40px;
+  background-color: #0a0a0a;
+  box-shadow: 8px 8px 16px #050505, -8px -8px 16px #101010;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+}
+
+/* Logo container */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Carré TL style neumorphism */
+.logo-square {
+  width: 50px;
+  height: 50px;
+  background: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  box-shadow:
+    6px 6px 12px #050505,
+    -6px -6px 12px #101010,
+    inset 1px 1px 2px rgba(255, 255, 255, 0.05),
+    inset -1px -1px 2px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.logo-square:hover {
+  transform: scale(1.05);
+}
+
+/* Texte TL stylé */
+.logo-text {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  color: #d4d4d4;
+  text-shadow:
+    1px 1px 2px #000,
+    -1px -1px 2px #222;
+}
+
+/* Nom à côté */
+.logo-name {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #00ffd5;
+}
+
+/* Décale le site pour pas cacher le haut */
+body {
+  padding-top: 80px;
 }
