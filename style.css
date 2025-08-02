@@ -1,3 +1,77 @@
+:root {
+  /* Dark theme colors par défaut */
+  --bg-color: #0a0a0a;
+  --text-color: #ffffff;
+  --title-color: #f2f4f4;
+  --badge-bg: linear-gradient(145deg, #0a0a0a, #121212);
+  --badge-text-color: #f5f7f6;
+  --button-bg: #0a0a0a;
+  --button-color: #fff;
+  --header-bg: #101010;
+  --header-shadow-light: 8px 8px 16px #050505;
+  --header-shadow-dark: -8px -8px 16px #101010;
+  --card-bg: #121212;
+  --card-shadow-light: 0 0 15px rgba(255, 255, 255, 0.05);
+  --card-shadow-dark: transparent; /* tu peux ajuster */
+  --button-shadow-light: 8px 8px 30px #050505;
+  --button-shadow-dark: -8px -8px 16px #101010;
+}
+
+[data-theme="light"] {
+  /* Light theme colors */
+  --bg-color: #f5f5f5;
+  --text-color: #111111;
+  --title-color: #f6f2f2;
+  --badge-bg: linear-gradient(145deg, #e0e0e0, #cfcfcf);
+  --badge-text-color: #333333;
+  --button-bg: #ddd;
+  --button-color: #111;
+  --header-bg: #e0e0e0;
+  --header-shadow-light: 6px 6px 12px #bdbdbd;
+  --header-shadow-dark: -6px -6px 12px #ffffff;
+  --card-bg: #e8e8e8;
+  --card-shadow-light: 5px 5px 15px #cfcfcf;
+  --card-shadow-dark: -5px -5px 15px #ffffff;
+  --button-shadow-light: 4px 4px 8px #cfcfcf;
+  --button-shadow-dark: -4px -4px 8px #ffffff;
+}
+
+/* Appliquer ces variables globalement */
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.title-part, .title-1, .title-2 {
+  color: var(--title-color) !important;
+  transition: color 0.4s ease;
+}
+
+.badge-card {
+  background: var(--badge-bg) !important;
+  transition: background 0.4s ease;
+}
+
+.badge-text {
+  color: var(--badge-text-color) !important;
+  transition: color 0.4s ease;
+}
+
+.neumorph-btn {
+  background: var(--button-bg) !important;
+  color: var(--button-color) !important;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* Drawer button styling (optionnel) */
+#theme-toggle {
+  background: var(--button-bg);
+  color: var(--button-color);
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -71,6 +145,7 @@ body {
   box-shadow: 8px 8px 30px #050505, -8px -8px 16px #101010;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-shadow: 2px 2px 10px #000000, -2px -1px 10px #ffffff;
 }
 
 .neumorph-btn:hover {
@@ -180,8 +255,8 @@ body {
   background: #121212;
   border-radius: 20px;
   padding: 20px;
-  min-width: 250px;
-  max-width: 250px;
+  min-width: 300px;
+  max-width: 300px;
   flex-shrink: 0;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
   transition: transform 0.3s ease;
