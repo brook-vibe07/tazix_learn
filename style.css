@@ -171,15 +171,15 @@ body {
 
 .slider {
   display: flex;
-  gap: 30px;
+  gap: 20px;
 }
 
 .card {
   background: #121212;
   border-radius: 20px;
   padding: 20px;
-  min-width: 280px;
-  max-width: 300px;
+  min-width: 250px;
+  max-width: 250px;
   flex-shrink: 0;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
   transition: transform 0.3s ease;
