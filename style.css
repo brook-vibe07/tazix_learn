@@ -143,6 +143,7 @@ body {
 .courses-section {
   padding: 20px 5% 60px;
   text-align: center;
+  margin-bottom: 80px
 }
 
 .courses-section h2 {
@@ -160,7 +161,7 @@ body {
 .slider-track {
   display: flex;
   width: fit-content;
-  animation: scroll-left 60s linear infinite;
+  animation: scroll-left 30s linear infinite;
   will-change: transform;
 }
 
@@ -172,6 +173,7 @@ body {
 .slider {
   display: flex;
   gap: 20px;
+  
 }
 
 .card {
