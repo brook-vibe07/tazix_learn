@@ -23,19 +23,70 @@
   </div>
 </header>
 
+<div class="drawer-click">
+  <div class="drawer-toggle" onclick="toggleDrawer()">☰</div>
+  <div class="drawer-panel" id="drawerPanel">
+    <a href="#">Accueil</a>
+    <a href="#">Cours</a>
+    <a href="#">Contact</a>
+  </div>
+</div>
+
 
   <!-- Section avec titre et bouton -->
   <section class="top-section">
   <div class="hero-titles">
-    <h1 class="title-part title-1">Bienvenue sur</h1>
+    <h1 class="title-part title-1">WELCOME TO</h1>
     <h1 class="title-part title-2">Tazix Learn</h1>
-    <h1 class="title-part title-3">Apprenez, progressez, maîtrisez.</h1>
+    
+    <div class="hero-button">
+      <button id="btn-start" class="neumorph-btn">Commencer</button>
+    </div>
   </div>
-  <div class="hero-button">
-    <button id="btn-start" class="neumorph-btn">Commencer</button>
 
+  <div class="badge-3d">
+    <div class="badge-card" id="badgeCard">
+      <img src="photo_2025-08-02_12-02-58.jpg" alt="TL logo" class="badge-logo" />
+      <div class="badge-text">Learn • Practice • Grow</div>
+    </div>
   </div>
 </section>
+
+<script>
+  const badgeCard = document.getElementById('badgeCard');
+  let isRotating = false;
+
+  // Rotation avec la souris
+  document.querySelector('.badge-3d').addEventListener('mousemove', (e) => {
+    if (isRotating) return; // bloque si anim en cours
+    const rect = badgeCard.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    const rotateX = (-y / rect.height) * 15;
+    const rotateY = (x / rect.width) * 15;
+    badgeCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1)`;
+  });
+
+  // Animation clic : rotation 360 + zoom
+  badgeCard.addEventListener('click', () => {
+    if (isRotating) return;
+    isRotating = true;
+    badgeCard.style.transition = 'transform 1s ease-in-out';
+    badgeCard.style.transform = 'rotateY(360deg) scale(1.2)';
+    setTimeout(() => {
+      badgeCard.style.transition = '';
+      badgeCard.style.transform = 'rotateX(0) rotateY(0) scale(1)';
+      isRotating = false;
+    }, 1000);
+  });
+
+  // Reset position quand souris quitte
+  document.querySelector('.badge-3d').addEventListener('mouseleave', () => {
+    if (isRotating) return;
+    badgeCard.style.transform = 'rotateX(0) rotateY(0) scale(1)';
+  });
+</script>
+
 
   <!-- Section Slider -->
   <section class="courses-section" id="courses">
@@ -157,6 +208,132 @@
     <p>Développé avec ❤️ par Tazi Issam</p>
   </div>
 </footer>
+<script>
+  function toggleDrawer() {
+    const drawer = document.getElementById('drawerPanel');
+    drawer.style.display = drawer.style.display === 'flex' ? 'none' : 'flex';
+  }
+</script>
+<!-- HTML à mettre dans body (id canvas) -->
+<canvas id="bgCanvas"></canvas>
+
+<script>
+  const canvas = document.getElementById('bgCanvas');
+  const ctx = canvas.getContext('2d');
+  let width, height;
+
+  const spacing = 80;
+  const squareSize = 60;
+
+  // Position souris
+  let mouseX = -1000;
+  let mouseY = -1000;
+
+  function resize() {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+  }
+  resize();
+
+  window.addEventListener('resize', resize);
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+  window.addEventListener('mouseout', () => {
+    mouseX = -1000;
+    mouseY = -1000;
+  });
+
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+    ctx.fillStyle = '#0a0a0a';
+    ctx.fillRect(0, 0, width, height);
+
+    for (let x = spacing/2; x < width; x += spacing) {
+      for (let y = spacing/2; y < height; y += spacing) {
+        // Distance souris
+        const dx = mouseX - x;
+        const dy = mouseY - y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+
+        // Calcul de la lumière et du relief (plus proche = plus lumineux + "surélevé")
+        const maxDist = 200;
+        const intensity = Math.max(0, 1 - dist / maxDist);
+
+        // Ombres et lumière pour effet 3D neumorphisme
+        const shadowColor = `rgba(255,255,255,${0.1 * intensity})`;
+        const shadowColorDark = `rgba(0,0,0,${0.4 * intensity})`;
+        const lightOffset = 10 * intensity;
+
+        ctx.save();
+
+        // Ombre claire (en haut à gauche)
+        ctx.shadowColor = shadowColor;
+        ctx.shadowBlur = 10;
+        ctx.shadowOffsetX = -lightOffset;
+        ctx.shadowOffsetY = -lightOffset;
+
+        // Ombre foncée (en bas à droite)
+        ctx.shadowColor = shadowColorDark;
+        ctx.shadowBlur = 15;
+        ctx.shadowOffsetX = lightOffset;
+        ctx.shadowOffsetY = lightOffset;
+
+        // Fond carré
+        const baseColor = '#121212';
+        ctx.fillStyle = baseColor;
+        ctx.beginPath();
+        ctx.roundRect(x - squareSize/2, y - squareSize/2, squareSize, squareSize, 16);
+        ctx.fill();
+
+        ctx.restore();
+
+        // Lumière blanche centrale plus brillante au centre
+        if (intensity > 0) {
+          const gradient = ctx.createRadialGradient(x, y, squareSize/4, x, y, squareSize);
+          gradient.addColorStop(0, `rgba(255,255,255,${0.1 * intensity})`);
+          gradient.addColorStop(1, 'rgba(255,255,255,0)');
+          ctx.fillStyle = gradient;
+          ctx.fillRect(x - squareSize/2, y - squareSize/2, squareSize, squareSize);
+        }
+      }
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  // Polyfill pour roundRect si pas supporté
+  if (!CanvasRenderingContext2D.prototype.roundRect) {
+    CanvasRenderingContext2D.prototype.roundRect = function(x, y, w, h, r) {
+      if (w < 2 * r) r = w / 2;
+      if (h < 2 * r) r = h / 2;
+      this.beginPath();
+      this.moveTo(x + r, y);
+      this.arcTo(x + w, y, x + w, y + h, r);
+      this.arcTo(x + w, y + h, x, y + h, r);
+      this.arcTo(x, y + h, x, y, r);
+      this.arcTo(x, y, x + w, y, r);
+      this.closePath();
+      return this;
+    }
+  }
+
+  draw();
+</script>
+
+<style>
+  #bgCanvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: -1;
+    background: #0a0a0a;
+  }
+</style>
+
 
 </body>
 </html>
